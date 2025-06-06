@@ -1,4 +1,4 @@
-package br.com.olik.asigntest;
+package br.com.olik.asigntest.infra.db.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

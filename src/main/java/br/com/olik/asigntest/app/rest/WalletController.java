@@ -1,5 +1,8 @@
-package br.com.olik.asigntest;
+package br.com.olik.asigntest.app.rest;
 
+import br.com.olik.asigntest.app.dto.TransactionDto;
+import br.com.olik.asigntest.infra.db.model.Wallet;
+import br.com.olik.asigntest.infra.db.repository.WalletRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

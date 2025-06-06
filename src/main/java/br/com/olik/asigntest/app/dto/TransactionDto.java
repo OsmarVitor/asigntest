@@ -1,4 +1,4 @@
-package br.com.olik.asigntest;
+package br.com.olik.asigntest.app.dto;
 
 import lombok.Data;
 

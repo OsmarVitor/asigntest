@@ -1,5 +1,7 @@
-package br.com.olik.asigntest;
+package br.com.olik.asigntest.utils;
 
+import br.com.olik.asigntest.infra.db.model.Wallet;
+import br.com.olik.asigntest.infra.db.repository.WalletRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
