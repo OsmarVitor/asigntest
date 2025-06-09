@@ -37,3 +37,5 @@ public class WalletController {
         return wallet.getAmount();
     }
 }
+
+//Os contratos não podem ser alterados, impossibilitando o pattern de response padrão como uma classe de SuccessResponse<T> por ex
