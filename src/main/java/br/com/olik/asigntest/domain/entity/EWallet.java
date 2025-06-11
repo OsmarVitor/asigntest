@@ -9,7 +9,8 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Builder
-public class ECreateTransaction {
-    private Long userId;
-    private BigDecimal amount;
+public class EWallet {
+
+    BigDecimal amount;
+    Long userId;
 }

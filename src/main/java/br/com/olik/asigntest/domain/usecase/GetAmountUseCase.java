@@ -2,7 +2,7 @@ package br.com.olik.asigntest.domain.usecase;
 
 import java.math.BigDecimal;
 
-public interface RetrieveAmountUseCase {
+public interface GetAmountUseCase {
 
     BigDecimal execute(Long userId);
 }

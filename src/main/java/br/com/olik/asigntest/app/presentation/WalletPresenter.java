@@ -6,8 +6,8 @@ import java.math.BigDecimal;
 
 public interface WalletPresenter {
 
-    BigDecimal retrieveAmount(Long userId);
+    BigDecimal getWalletAmount(Long userId);
 
-    BigDecimal createTransaction(TransactionDto transactionDto);
+    BigDecimal createWalletTransaction(TransactionDto transactionDto);
 
 }
