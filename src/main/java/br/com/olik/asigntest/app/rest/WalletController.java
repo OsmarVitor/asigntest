@@ -28,7 +28,7 @@ public class WalletController {
 
     @PostMapping("/transaction")
     public BigDecimal transaction(@RequestBody TransactionDto transactionDto) {
-        logger.info("Start Transaction {}", transactionDto);
+        logger.info("Start transaction {}", transactionDto);
         var response = walletPresenter.createWalletTransaction(transactionDto);
         logger.info("Wallet {}", response);
         return response;

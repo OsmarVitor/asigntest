@@ -8,6 +8,8 @@ import br.com.olik.asigntest.infra.db.model.Wallet;
 import br.com.olik.asigntest.infra.db.repository.WalletRepository;
 import br.com.olik.asigntest.infra.exception.ModelNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Objects;
@@ -16,13 +18,15 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class WalletDataProvider implements GetWalletGateway, UpdateWalletGateway {
 
+    Logger logger = LoggerFactory.getLogger(WalletDataProvider.class);
+
     private final WalletRepository walletRepository;
 
     @Override
     public ERetrieveWallet findWallet(Long userId) {
-        Wallet wallet = walletRepository.findByUserId(userId);
-        if(Objects.isNull(wallet))
-            throw new ModelNotFoundException("Wallet not found for userId " + userId);
+        logger.info("Start find Wallet for userId {}", userId);
+        Wallet wallet = findByUserId(userId);
+        logger.info("Success to find Wallet for userId {}", userId);
         return ERetrieveWallet.builder()
                 .userId(wallet.getUserId())
                 .amount(wallet.getAmount())
@@ -33,14 +37,22 @@ public class WalletDataProvider implements GetWalletGateway, UpdateWalletGateway
     @Override
     public EWallet createWalletTransaction(EWallet eWalletCreateTransaction) {
         Long userId = eWalletCreateTransaction.getUserId();
-        Wallet wallet = walletRepository.findByUserId(userId);
-        if(Objects.isNull(wallet))
-            throw new ModelNotFoundException("Wallet not found for userId " + userId);
+        Wallet wallet = findByUserId(userId);
         wallet.setAmount(wallet.getAmount().add(eWalletCreateTransaction.getAmount()));
         walletRepository.save(wallet);
+        logger.info("Success to finish transaction for userId {}", userId);
         return EWallet.builder()
                 .userId(wallet.getUserId())
                 .amount(wallet.getAmount())
                 .build();
+    }
+
+    private Wallet findByUserId(Long userId) {
+        Wallet wallet = walletRepository.findByUserId(userId);
+        if (Objects.isNull(wallet)) {
+            logger.error("Wallet not found for userId {}", userId);
+            throw new ModelNotFoundException("Wallet not found for userId " + userId);
+        }
+        return wallet;
     }
 }
