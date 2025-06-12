@@ -1,6 +1,6 @@
 package br.com.olik.asigntest.domain.usecase.impl;
 
-import br.com.olik.asigntest.domain.entity.EWallet;
+import br.com.olik.asigntest.domain.entity.ERetrieveWallet;
 import br.com.olik.asigntest.domain.gateway.GetWalletGateway;
 import br.com.olik.asigntest.domain.usecase.GetAmountUseCase;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +16,7 @@ public class GetAmountUseCaseImpl implements GetAmountUseCase {
 
     @Override
     public BigDecimal execute(Long userId) {
-         EWallet eWallet = getWalletGateway.findWallet(userId);
-        return eWallet.getAmount();
+        ERetrieveWallet eRetrieveWallet = getWalletGateway.findWallet(userId);
+        return eRetrieveWallet.getAmount();
     }
 }

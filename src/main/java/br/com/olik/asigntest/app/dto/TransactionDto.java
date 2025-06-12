@@ -1,10 +1,10 @@
 package br.com.olik.asigntest.app.dto;
 
-import lombok.Data;
+import lombok.Getter;
 
 import java.math.BigDecimal;
 
-@Data
+@Getter
 public class TransactionDto {
     private Long userId;
     private BigDecimal amount;

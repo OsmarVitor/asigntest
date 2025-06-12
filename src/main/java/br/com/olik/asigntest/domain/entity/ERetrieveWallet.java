@@ -7,7 +7,8 @@ import java.math.BigDecimal;
 
 @Getter
 @Builder
-public class EWallet {
+public class ERetrieveWallet {
     BigDecimal amount;
     Long userId;
+    String type;
 }

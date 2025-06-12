@@ -1,8 +1,8 @@
 package br.com.olik.asigntest.domain.gateway;
 
-import br.com.olik.asigntest.domain.entity.EWallet;
+import br.com.olik.asigntest.domain.entity.ERetrieveWallet;
 
 public interface GetWalletGateway {
 
-    EWallet findWallet(Long userId);
+    ERetrieveWallet findWallet(Long userId);
 }

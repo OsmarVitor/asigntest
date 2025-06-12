@@ -3,14 +3,15 @@ package br.com.olik.asigntest.infra.db.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
-@Data
+@Getter
+@Setter
 @Entity
-@Table(name = "wallet")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
