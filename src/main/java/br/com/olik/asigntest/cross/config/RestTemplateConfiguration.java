@@ -1,4 +1,4 @@
-package br.com.olik.asigntest.cross.handler.config;
+package br.com.olik.asigntest.cross.config;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
