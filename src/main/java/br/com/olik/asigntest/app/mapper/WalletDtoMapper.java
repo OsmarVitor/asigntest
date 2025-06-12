@@ -7,9 +7,10 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class WalletDtoMapper {
 
-    public static EWallet toEntity(TransactionDto transactionDto){
-        return EWallet.builder()
-                .userId(transactionDto.getUserId())
-                .amount(transactionDto.getAmount()).build();
-    }
+  public static EWallet toEntity(TransactionDto transactionDto) {
+    return EWallet.builder()
+        .userId(transactionDto.getUserId())
+        .amount(transactionDto.getAmount())
+        .build();
+  }
 }

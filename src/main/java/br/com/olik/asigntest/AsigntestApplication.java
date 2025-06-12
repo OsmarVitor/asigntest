@@ -8,8 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 public class AsigntestApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AsigntestApplication.class, args);
-	}
-
+  public static void main(String[] args) {
+    SpringApplication.run(AsigntestApplication.class, args);
+  }
 }

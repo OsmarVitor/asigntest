@@ -1,13 +1,12 @@
 package br.com.olik.asigntest.domain.entity;
 
+import java.math.BigDecimal;
 import lombok.Builder;
 import lombok.Getter;
-
-import java.math.BigDecimal;
 
 @Getter
 @Builder
 public class EWallet {
-    BigDecimal amount;
-    Long userId;
+  BigDecimal amount;
+  Long userId;
 }

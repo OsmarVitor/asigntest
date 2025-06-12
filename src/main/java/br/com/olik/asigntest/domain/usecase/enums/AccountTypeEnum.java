@@ -4,5 +4,6 @@ import lombok.Getter;
 
 @Getter
 public enum AccountTypeEnum {
-    ITAU, SANTANDER
+  ITAU,
+  SANTANDER
 }

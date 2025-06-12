@@ -4,5 +4,5 @@ import br.com.olik.asigntest.domain.entity.ERetrieveWallet;
 
 public interface GetWalletGateway {
 
-    ERetrieveWallet findWallet(Long userId);
+  ERetrieveWallet findWallet(Long userId);
 }

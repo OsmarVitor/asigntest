@@ -4,5 +4,5 @@ import br.com.olik.asigntest.domain.entity.EWallet;
 
 public interface UpdateWalletGateway {
 
-    EWallet createWalletTransaction(EWallet eWalletCreateTransaction);
+  EWallet createWalletTransaction(EWallet eWalletCreateTransaction);
 }

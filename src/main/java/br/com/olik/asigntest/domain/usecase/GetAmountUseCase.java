@@ -4,5 +4,5 @@ import java.math.BigDecimal;
 
 public interface GetAmountUseCase {
 
-    BigDecimal execute(Long userId);
+  BigDecimal execute(Long userId);
 }
