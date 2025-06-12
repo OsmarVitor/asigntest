@@ -4,6 +4,7 @@ import br.com.olik.asigntest.domain.entity.ERetrieveWallet;
 import br.com.olik.asigntest.domain.entity.EWallet;
 import br.com.olik.asigntest.domain.exception.TransactionBadRequestException;
 import br.com.olik.asigntest.domain.gateway.GetWalletGateway;
+import br.com.olik.asigntest.domain.gateway.SendSmsGateway;
 import br.com.olik.asigntest.domain.gateway.UpdateWalletGateway;
 import br.com.olik.asigntest.domain.usecase.CreateTransactionUseCase;
 import br.com.olik.asigntest.domain.usecase.enums.AccountTypeEnum;
@@ -23,11 +24,13 @@ public class CreateTransactionUseCaseImpl implements CreateTransactionUseCase {
 
   private final GetWalletGateway getWalletGateway;
 
+  private final SendSmsGateway sendSmsGateway;
+
   @Override
   public BigDecimal execute(EWallet eWalletCreateTransaction) {
-    logger.info("Execute transaction for userId {}", eWalletCreateTransaction.getUserId());
-    ERetrieveWallet eRetrieveWallet =
-        getWalletGateway.findWallet(eWalletCreateTransaction.getUserId());
+    Long userId = eWalletCreateTransaction.getUserId();
+    logger.info("Execute transaction for userId {}", userId);
+    ERetrieveWallet eRetrieveWallet = getWalletGateway.findWallet(userId);
 
     if (eRetrieveWallet.getType().equals(AccountTypeEnum.ITAU.name())
         && eRetrieveWallet
@@ -37,6 +40,7 @@ public class CreateTransactionUseCaseImpl implements CreateTransactionUseCase {
             < 0) {
       logger.error(
           "Transaction declined, wallet type {} cannot be negative", AccountTypeEnum.ITAU.name());
+      sendSmsGateway.sendSms(userId);
       throw new TransactionBadRequestException("Transaction declined, insufficient balance");
     }
     var eWalletUpdated = updateWalletGateway.createWalletTransaction(eWalletCreateTransaction);
